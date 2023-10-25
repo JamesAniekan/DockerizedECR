@@ -22,7 +22,7 @@ pipeline{
             steps{
                 script{
                     sh 'docker build -t mydockerimg .'
-                    sh 'docker tag mydockerimg:version1 490098076655.dkr.ecr.us-east-1.amazonaws.com/mydockerimg:version1'
+                    sh 'docker tag mydockerimg 490098076655.dkr.ecr.us-east-1.amazonaws.com/mydockerimg:version1'
                 }
             }
         }
