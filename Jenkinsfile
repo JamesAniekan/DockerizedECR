@@ -18,5 +18,20 @@ pipeline{
                 }
             }
         }
+        stage('Build and tag image'){
+            steps{
+                script{
+                    sh 'docker build -t mydockerimg .'
+                    sh 'docker tag mydockerimg:version1 490098076655.dkr.ecr.us-east-1.amazonaws.com/mydockerimg:version1'
+                }
+            }
+        }
+        stage('Push to awsECR'){
+            steps{
+                script{
+                    sh 'docker push 490098076655.dkr.ecr.us-east-1.amazonaws.com/mydockerimg:version1'
+                }
+            }
+        }
     }
 }
